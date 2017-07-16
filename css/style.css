@@ -1,0 +1,139 @@
+*,*::after,*::before{
+    box-sizing: border-box;    
+}
+body{
+    background-image:url('../img/mountain.jpeg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.menu{
+    width: 75%;
+    height: auto;
+    margin-top:10vh;
+    margin-left: auto;
+    margin-right: auto;      
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    perspective: 700px;
+}
+
+.menu__column{
+    color:#ddd;
+    flex:0 0 33.33%;;
+    height: 100%;
+    overflow-y: hidden;          
+    background-color:rgba(0,0,0,.55);  
+    border:1px solid #555; 
+    padding: 1em 0;   
+    transition: all .8s;
+}
+.menu__column:nth-child(1){
+    transform: rotateY(3deg);
+    transform-origin: center right;
+}
+
+
+.menu__column:nth-child(3){
+    transform: rotateY(-3deg);
+    transform-origin: center left;    
+     
+}
+
+.menu.cerrado .menu__column:nth-child(1){
+    transition-delay: .4s;
+}
+
+.items{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border:2px solid rgba(250,100,00,.8);
+    padding:1em;    
+}
+.item{
+    width: 100%;    
+    display: flex;
+    margin-bottom:1em;
+    align-items: center;
+    box-shadow: 0 1px 1px  rgba(200,200,200,.5);
+    justify-content: space-between;
+    padding:.25em;
+    max-height: 110px;
+    overflow: hidden;
+}
+
+.item:nth-child(odd){
+    flex-direction: row-reverse;
+}
+.item:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,.30);
+}
+.item img{
+    height: 80px;
+    width: 80px;
+    border-radius: 10%;    
+}
+.item__text{
+    padding-left: .25em;
+    align-self: stretch;
+    order:1;
+}
+
+.item__title{
+    font-size: .9em;     
+    margin:.2em 0;
+}
+
+.item__description{
+    font-size: .5em;
+    overflow: hidden;
+    margin:0;
+}
+
+.title_section{
+    margin:.5em 0;
+    text-align: center;
+}
+
+.back_column{
+    position:absolute;
+    background-color: rgba(0,0,10,.8);
+    width: 100%;
+    height: 100%;
+    top:0;
+    transform: rotateY(180deg);   
+    backface-visibility: hidden;     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.menu.cerrado .menu__column:nth-child(3){
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+}
+.menu.cerrado .menu__column:nth-child(3)>.back_column,
+.menu.cerrado .menu__column:nth-child(1)>.back_column{
+    backface-visibility: visible;    
+}
+
+.menu.cerrado .menu__column:nth-child(1){
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+} 
+
+
+.main_title{
+    font-size: 1.2em;
+    text-align: center;
+    text-decoration: brown;    
+}
+
