@@ -6,9 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
     </head>
-    <body>
-        <button id="menu_open">abrir</button><button id="menu_close">cerrar</button>
-        <section class="menu_container" id="menu">                        
+    <body>                                
+        <section class="menu_container" id="menu">                                                
             <div class="menu_column flip">
                 <div class="front">
                     <div class="menu_section">
@@ -46,7 +45,7 @@
                     </div>
                 </div>
                 <div class="back portada">
-                    <h2 class="main_title">Menu</h2>
+                    <h2 class="main_title" id="menu_open">Menu</h2>
                 </div>                
             </div>
             <div class="menu_column">
@@ -54,11 +53,24 @@
                 <div class="back">ATRAS</div>                
             </div>
             <div class="menu_column flip">
-                <div class="front">FRENTE</div>
+                <div class="front">
+                    <a class='button-circle cancel' id="menu_close">X</a>
+                </div>
                 <div class="back">ATRAS</div>                
             </div>
         </section>
-              
+
+        <section id="modal">
+            <header class="modal_header">
+                <h2 class="current_title"></h2>
+            </header>
+            <article class="modal_body">                
+            </article>
+            <footer class="modal_footer">
+                <a href="#"class="button button-success" id='aceptar'>Agregar</a>
+                <a href="#"class="button button-cancel" id='cancelar'>Cancelar</a>                
+            </footer>
+        </section>
         <script src="./index.js" ></script>
     </body>
 </html>
