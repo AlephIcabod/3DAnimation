@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Multilevel menu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="menu_button" id="menu-toggle"></div>
+            <nav class='nav'>
+                <ul class='menu' id="main-menu">
+                    <li class='menu_item'><a href="#" class='menu_link'>item-1</a></li>
+                    <li class='menu_item'><a href="#" class='menu_link submenu_container'>item-2</a>
+                        <ul class="submenu">
+                            <li class="menu_item"><a href="#" class="menu_link back">Back</a></li>
+                            <li class="menu_item"><a href="#" class="menu_link">Subitem 1</a></li>
+                            <li class="menu_item"><a href="#" class="menu_link">Subitem 2</a></li>
+                            <li class="menu_item"><a href="#" class="menu_link">Subitem 3</a></li>
+                        </ul>
+                    </li>
+                    <li class='menu_item'><a href="#" class='menu_link'>item-3</a></li>
+                    <li class='menu_item'><a href="#" class='menu_link'>item-4</a></li>
+                </ul>
+            </nav>
+        </div>
+        <script src='./index.js'>            
+        </script>
+    </body>
+</html>
