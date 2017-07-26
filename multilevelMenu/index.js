@@ -1,28 +1,45 @@
-const toggleMenu=(id,men)=>{
+const toggleMenu=(id,men,navID)=>{
     let toggle=document.getElementById(id);
     let menu=document.getElementById(men);
-    toggle.addEventListener('click',e=>{
+    let nav=document.getElementById(navID);
+    toggle.addEventListener('click',e=>{        
+        menu.querySelectorAll('.show').forEach(i=>i.classList.remove('show'));
         menu.classList.toggle('show');
     });
     if(menu.querySelector('.submenu'))
-        viewSubmenu(menu)
+        viewSubmenu(menu,nav)
 }
 
-const viewSubmenu=(men)=>{
-    let subs=men.querySelectorAll('.submenu');
+const viewSubmenu=(men,nav)=>{
+    let subs=men.querySelectorAll('.submenu');    
     subs.forEach(i=>{
-        let x=i.parentElement;   
-        let b=i.querySelector('.back');     
-        x.querySelector('.menu_link').addEventListener('click',e=>{ 
-            console.log('padre');           
-            e.preventDefault();
-            i.classList.add('show');            
+        i.parentElement.querySelector('.menu_link').addEventListener('click',e=>{
+             let v=document.querySelectorAll('.show');
+              v.forEach(j=>{j.classList.remove('show');
+                    fadeOut(j);
+                });              
+              i.classList.add('show');
+              fadeIn(i);              
         });
-        
-        b.addEventListener('click',e=>{            
-            e.preventDefault();
-            i.classList.remove('show');                                    
-        });
+        i.querySelector('.back').addEventListener('click',e=>{
+            i.classList.remove('show');
+            fadeOut(i);
+            i.parentElement.parentElement.classList.add('show');
+            fadeIn(i.parentElement.parentElement)
+        })
     });
 }
-toggleMenu('menu-toggle','main-menu');
+
+
+const fadeIn=(cont)=>{
+    const childs=cont.children;
+    for(let i of childs)
+    i.classList.add('fadeIn')
+}
+
+const fadeOut=(cont)=>{
+    const childs=cont.children;
+    for(let i of childs)
+    i.classList.remove('fadeIn')
+}
+toggleMenu('menu-toggle','main-menu','main-nav');
