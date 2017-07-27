@@ -1,0 +1,23 @@
+@mixin menu_button($size,$bg,$fg){    
+    width: $size;
+    height: $size;
+    background-color:$bg;
+    position: relative;
+    cursor:pointer;
+    &::after{        
+        position: absolute;
+        width: $size*.7;
+        top:$size*.2;
+        height:$size*.1;
+        left:$size*.15;
+        background-color: $fg;
+        display: block;
+        box-shadow:0 10px $fg,
+                    0 20px $fg ;
+        content:'';
+    }
+    &:hover{
+        background-color: darken($bg, 10)
+    }
+    
+}

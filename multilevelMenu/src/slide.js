@@ -1,4 +1,4 @@
-const toggleMenu=(id,men)=>{
+const toggleMenuSlide=(id,men)=>{
     let toggle=document.getElementById(id);
     let menu=document.getElementById(men);    
     toggle.addEventListener('click',e=>{ 
@@ -20,7 +20,7 @@ const slideDown=parent=>{
     parent.querySelectorAll('.submenu').forEach(i=>{
         i.style.height=0;
     })
-    height=parent.children[0].scrollHeight*parent.children.length+10;            
+    let height=parent.children[0].scrollHeight*parent.children.length+5;            
     parent.style.height=height+'px';    
 }
 
@@ -36,8 +36,8 @@ const propagateHeigth=(elem,parent)=>{
  }
 
 const returnParent=submenu=>{
-    parent=submenu.parentElement.parentElement;    
-    height=parent.children.length*parent.children[0].scrollHeight+10+'px';
+    let parent=submenu.parentElement.parentElement;    
+    let height=parent.children.length*parent.children[0].scrollHeight+5+'px';
     parent.style.height=height;
     propagateHeigth(parent,parent.parentElement.parentElement);
 }
@@ -57,6 +57,4 @@ const viewSubmenus=(menu)=>{
     });
 }
 
-
-
-toggleMenu('menu-toggle','main-menu');
+export default toggleMenuSlide;
