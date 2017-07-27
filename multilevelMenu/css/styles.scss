@@ -66,6 +66,7 @@ body{
         background-color: lighten($bg, 5);                
         overflow: hidden;
         height: 0;
+        transition: all 1s;
     }
     &_link{
         padding:.5em 0;
@@ -118,14 +119,23 @@ body{
 
 .show{ 
     //height: auto;    
-    &>.menu_item{        
-     height: auto;
+    &-fadeIn>.menu_item{
+           animation: fade-in .7s forwards;            
+    }    
+    &-fadeOut>.menu_item{
+        animation:fade-out .7s forwards;
     }
-    overflow: visible;
-}
+    &-explode{        
+        animation: explode .7s forwards;
+        &>.menu_item{
+            height: auto;
+            &>.menu_link{display: inline-block}
+        }
+        
 
-.fadeIn{
-     animation: fade-in .7s forwards; 
+    }
+
+    overflow: visible;
 }
 
 
@@ -134,12 +144,43 @@ body{
         height: 0;
         width: 0;     
         opacity: 0;        
-        transform: translateX(100%);
+        transform: translateX(50%);
     }
     to{        
         opacity: 1;
         height: auto;        
-        width: 100%;        
+        width: 100%;                
         transform: translateX(0);
+    }    
+}
+
+
+@keyframes fade-out{
+    from{   
+        height: 0;
+        width: 0;     
+        opacity: 0;                
+    }
+    to{        
+        opacity: 1;
+        height: auto;        
+        width: 100%;                
+    }
+}
+@keyframes explode{
+    from{
+        height: 150%;
+        width: 150%;
+        opacity: 0;
+        overflow: hidden;
+        border-radius: 50%;
+        transform-origin: center;        
+    }
+    to{
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        overflow: hidden;
+        border-radius: 0;        
     }
 }
