@@ -9,19 +9,16 @@ const toggleMenuSlide=(id,men)=>{
 
 const slide=(parent)=>{
     let height;    
-    if(parent.style.height==0||parent.style.height=='0px'){
-        slideDown(parent); 
-    }
+    if(parent.style.height==0||parent.style.height=='0px')
+        slideDown(parent);     
     else
         slideUp(parent);
 }
 
 const slideDown=parent=>{
-    parent.querySelectorAll('.submenu').forEach(i=>{
-        i.style.height=0;
-    })
-    let height=parent.children[0].scrollHeight*parent.children.length+5;            
-    parent.style.height=height+'px';    
+    parent.querySelectorAll('.submenu').forEach(i=>i.style.height=0);    
+    let height=parent.scrollHeight+2;
+    parent.style.height=height+'px';
 }
 
 const slideUp=parent=>{
@@ -29,15 +26,15 @@ const slideUp=parent=>{
 }
 
 const propagateHeigth=(elem,parent)=>{
-    if(parent.classList.contains('submenu')||parent.classList.contains('menu')){                    
-        parent.style.height=elem.style.height;        
+    if(parent.classList.contains('submenu')||parent.classList.contains('menu')){
+        parent.style.height=elem.style.height;
         propagateHeigth(parent,parent.parentElement.parentElement);        
     }
  }
 
 const returnParent=submenu=>{
     let parent=submenu.parentElement.parentElement;    
-    let height=parent.children.length*parent.children[0].scrollHeight+5+'px';
+    let height=parent.children.length*parent.children[0].scrollHeight+1+'px';
     parent.style.height=height;
     propagateHeigth(parent,parent.parentElement.parentElement);
 }

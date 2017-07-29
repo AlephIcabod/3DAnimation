@@ -1,6 +1,6 @@
-@import './button';
-@import './menu';
-
+@import './_button';
+@import './_menu';
+@import './utils';
 *,*::after,*::before{
     box-sizing: border-box;    
 }
@@ -19,26 +19,28 @@ body{
 }
 
 .container{
-    width: 50%;    
+    width: 100%;    
     background-color: $bg;
     position: relative;
 }
 
 .menu_button{
-    @include menu_button(40px,green,#ddd);
+    @include menu_button(40px,red,#ddd);
 }
 
 .nav{
     background-color: orangered;
-    width: 80%;
+    width: 50%;
     position: relative; 
+    @include phone(){
+        width: 100%;
+    }
+    @include tablet(){
+        width: 75%;
+    }
 }
 
 .menu{
-    @include menu(hsl(120deg,60%,50%),50%);        
+    @include menu(hsl(0deg,60%,50%));        
 }    
-    
-.submenu{
-    @include submenu(hsl(120deg,40%,50%));    
-}
 
